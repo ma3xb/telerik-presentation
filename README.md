@@ -1,6 +1,6 @@
 # Strategy · Telerik Academy
 
-A bilingual Bulgarian / English web presentation for a 190-minute introductory UI/UX lecture. 54 slides follow the approved `program.md`: three 40-minute blocks, two breaks, a 25-minute AI session, introduction and final discussion. The session runs 18:00–21:10, with breaks at 18:45–18:55 and 19:35–19:55. Slide 2 is a bilingual lecturer placeholder, awaiting name, photo, role and background.
+A bilingual Bulgarian / English web presentation for a 190-minute introductory UI/UX lecture. 54 slides follow the approved `program.md`: three 40-minute blocks, two breaks, a 25-minute AI session, introduction and final discussion. The session runs 18:00–21:10, with breaks at 18:45–18:55 and 19:35–19:55. Slide 2 introduces Dimitar Stoimchev with a realistic edited portrait and a three-sentence BG/EN biography covering his work from September 2016 to September 2026.
 
 ## Present
 
@@ -49,6 +49,8 @@ Five original illustrations were generated using OpenAI image generation for thi
 - `assistant.png`: a helpful shopping assistant with a bag, illustrating delegation and human verification.
 
 The four story illustrations use editorial ink contours, scratched hatching, paper texture and green/lavender/cyan accents. Comic labels are rendered as selectable bilingual HTML rather than embedded image text. Graphs and diagrams use CSS and semantic HTML.
+
+The lecturer portrait is adapted from the user-provided LinkedIn profile photo. See [portrait source and edit prompt](presentation/assets/portrait-edit.md) for provenance and the built-in image-generation brief.
 
 ## Hosting
 
