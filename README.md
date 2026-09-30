@@ -1,6 +1,6 @@
 # Strategy · Telerik Academy
 
-A bilingual Bulgarian / English web presentation for a 180-minute introductory UI/UX lecture. 53 slides follow the approved `program.md`: three 40-minute blocks, two breaks, a 25-minute AI session, introduction and final discussion.
+A bilingual Bulgarian / English web presentation for a 190-minute introductory UI/UX lecture. 54 slides follow the approved `program.md`: three 40-minute blocks, two breaks, a 25-minute AI session, introduction and final discussion. The session runs 18:00–21:10, with breaks at 18:45–18:55 and 19:35–19:55. Slide 2 is a bilingual lecturer placeholder, awaiting name, photo, role and background.
 
 ## Present
 
