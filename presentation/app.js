@@ -15,7 +15,7 @@
   const t=(bg,en)=>lang==='bg'?bg:en;
   function setLanguage(value){lang=value;const url=new URL(location.href);url.searchParams.set('lang',lang);window.history.replaceState(null,'',url);render();}
   const e=v=>esc(text(v));
-  const ui={overview:B('Всички слайдове','All slides'),notes:B('Бележки за лектора','Presenter notes'),full:B('Цял екран','Fullscreen'),prev:B('Предишен слайд','Previous slide'),next:B('Следващ слайд','Next slide'),close:B('Затвори','Close'),start:B('Старт','Start'),pause:B('Пауза','Pause'),resume:B('Продължи','Resume'),reset:B('Отначало','Reset'),reveal:B('Покажи вариант','Reveal an alternative'),hide:B('Скрий варианта','Hide the alternative')};
+  const ui={overview:B('Всички слайдове','All slides'),materials:B('Материали','Materials'),full:B('Цял екран','Fullscreen'),prev:B('Предишен слайд','Previous slide'),next:B('Следващ слайд','Next slide'),close:B('Затвори','Close'),start:B('Старт','Start'),pause:B('Пауза','Pause'),resume:B('Продължи','Resume'),reset:B('Отначало','Reset'),reveal:B('Покажи вариант','Reveal an alternative'),hide:B('Скрий варианта','Hide the alternative')};
   function label(s){return e(s.kicker||CHAPTERS[s.chapter]);}
   function header(s){return `<div class="slide-header"><span class="eyebrow">${label(s)}</span><h1>${e(s.title)}</h1>${s.subtitle?`<p class="subtitle">${e(s.subtitle)}</p>`:''}</div>`;}
   function caption(s){return s.caption?`<p class="caption">${e(s.caption)}</p>`:'';}
@@ -98,7 +98,7 @@
     $('#prev').disabled=index===0;$('#next').disabled=index===SLIDES.length-1;$('#progress-fill').style.width=`${(index+1)/SLIDES.length*100}%`;
     $('#navigation-hint').innerHTML=t('<kbd>←</kbd> <kbd>→</kbd> навигация <span>·</span> <kbd>O</kbd> всички слайдове','<kbd>←</kbd> <kbd>→</kbd> navigate <span>·</span> <kbd>O</kbd> slide overview');
     document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===lang));
-    [['overview-button','overview','O'],['notes-button','notes','N'],['fullscreen-button','full','F'],['prev','prev','←'],['next','next','→']].forEach(([id,key,shortcut])=>{const el=$('#'+id);el.setAttribute('aria-label',text(ui[key]));el.title=`${text(ui[key])} · ${shortcut}`;});
+    [['overview-button','overview','O'],['materials-button','materials','N'],['fullscreen-button','full','F'],['prev','prev','←'],['next','next','→']].forEach(([id,key,shortcut])=>{const el=$('#'+id);el.setAttribute('aria-label',text(ui[key]));el.title=`${text(ui[key])} · ${shortcut}`;});
     $('.wordmark').setAttribute('aria-label',t('Първи слайд','First slide'));
     document.querySelectorAll('.close-button').forEach(b=>b.setAttribute('aria-label',text(ui.close)));
     $('#blackout button').setAttribute('aria-label',t('Върни презентацията','Return to presentation'));
@@ -123,9 +123,9 @@
     $('#overview-content').innerHTML=CHAPTERS.map((c,chapter)=>`<h3 class="overview-chapter">${e(c)}</h3><div class="overview-grid">${SLIDES.map((s,i)=>s.chapter===chapter?`<button class="overview-slide" data-slide="${i}" aria-current="${i===index}"><small>${String(i+1).padStart(2,'0')} · ${s.type==='exercise'?t('УПРАЖНЕНИЕ','EXERCISE'):s.type==='story'?t('ИСТОРИЯ','STORY'):e(c)}</small>${e(s.title)}</button>`:'').join('')}</div>`).join('');
     $('#overview-dialog').showModal();$('#overview-content [aria-current="true"]')?.scrollIntoView({block:'center'});
   }
-  function notes(){const s=SLIDES[index];$('#notes-label').textContent=text(ui.notes);$('#notes-title').textContent=text(s.title);$('#notes-content').innerHTML=`<div class="notes-notice">${t('Бележките се отварят на този екран.','Notes open on this screen.')}</div><p>${e(s.notes)}</p>${s.source?`<p class="notes-source">${t('Източник','Source')}: <a href="${esc(s.source)}" target="_blank" rel="noopener noreferrer">${esc(s.source)}</a></p>`:''}<p class="notes-source">${t('Пълният сценарий','The full Bulgarian script')}: <a href="speaker-script-bg.md" target="_blank">program.md</a></p>`;$('#notes-dialog').showModal();}
+  function materials(){$('#materials-title').textContent=text(ui.materials);$('#materials-content').textContent=t('Тук ще можете да намерите учебни материали, свързани със съдържанието на лекцията.','Here you will find learning materials related to the lecture content.');$('#materials-dialog').showModal();}
   async function fullscreen(){try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen();}catch{$('#announcer').textContent=t('Използвайте режима за цял екран на браузъра.','Use the browser’s fullscreen mode.');}}
-  async function copyPrompt(button){const value=typeof DEMO_PROMPT!=='undefined'?text(DEMO_PROMPT):'';try{await navigator.clipboard.writeText(value);button.textContent=t('Копирано ✓','Copied ✓');}catch{const area=document.createElement('textarea');area.value=value;area.style.cssText='position:fixed;left:0;top:0;width:1px;height:1px;';document.body.append(area);area.select();const ok=document.execCommand('copy');area.remove();button.textContent=ok?t('Копирано ✓','Copied ✓'):t('Виж задачата в бележките','See the prompt in notes');}}
+  async function copyPrompt(button){const value=typeof DEMO_PROMPT!=='undefined'?text(DEMO_PROMPT):'';try{await navigator.clipboard.writeText(value);button.textContent=t('Копирано ✓','Copied ✓');}catch{const area=document.createElement('textarea');area.value=value;area.style.cssText='position:fixed;left:0;top:0;width:1px;height:1px;';document.body.append(area);area.select();const ok=document.execCommand('copy');area.remove();button.textContent=ok?t('Копирано ✓','Copied ✓'):t('Копирането не успя. Опитайте отново.','Copy failed. Please try again.');}}
   document.addEventListener('click',event=>{
     const button=event.target.closest('button');if(!button)return;
     if(button.dataset.lang){setLanguage(button.dataset.lang);return;}
@@ -136,7 +136,7 @@
     if(button.dataset.duoChoice!==undefined){duoSelection.set(SLIDES[index].id,Number(button.dataset.duoChoice));render();$(`[data-duo-choice="${button.dataset.duoChoice}"]`)?.focus();return;}
     if(button.dataset.action==='duo-reveal'){const id=SLIDES[index].id;revealed.has(id)?revealed.delete(id):revealed.add(id);render();$('[data-action="duo-reveal"]')?.focus();return;}
     if(button.dataset.action==='duo-reset'){duoSelection.delete(SLIDES[index].id);render();$('[data-duo-choice="0"]')?.focus();return;}
-    switch(button.dataset.action){case'home':go(0);break;case'prev':go(index-1);break;case'next':go(index+1);break;case'overview':overview();break;case'notes':notes();break;case'fullscreen':fullscreen();break;case'close':button.closest('dialog').close();break;case'timer':toggleTimer();break;case'reset-timer':resetTimer();break;case'reveal':{const id=SLIDES[index].id;revealed.has(id)?revealed.delete(id):revealed.add(id);render();$('[data-action="reveal"]')?.focus();break;}case'copy-prompt':copyPrompt(button);break;case'unblank':$('#blackout').hidden=true;break;}
+    switch(button.dataset.action){case'home':go(0);break;case'prev':go(index-1);break;case'next':go(index+1);break;case'overview':overview();break;case'materials':materials();break;case'fullscreen':fullscreen();break;case'close':button.closest('dialog').close();break;case'timer':toggleTimer();break;case'reset-timer':resetTimer();break;case'reveal':{const id=SLIDES[index].id;revealed.has(id)?revealed.delete(id):revealed.add(id);render();$('[data-action="reveal"]')?.focus();break;}case'copy-prompt':copyPrompt(button);break;case'unblank':$('#blackout').hidden=true;break;}
   });
   document.addEventListener('keydown',event=>{
     if(event.altKey||event.ctrlKey||event.metaKey||/INPUT|TEXTAREA|SELECT/.test(event.target.tagName))return;
@@ -144,7 +144,7 @@
     if($('dialog[open]'))return;
     if(event.target.closest('button,a')&&(event.key===' '||event.key==='Enter'))return;
     const key=event.key.toLowerCase();
-    if(['arrowright','arrowdown','pagedown',' '].includes(key)){event.preventDefault();go(index+1);}else if(['arrowleft','arrowup','pageup'].includes(key)){event.preventDefault();go(index-1);}else if(key==='home'){event.preventDefault();go(0);}else if(key==='end'){event.preventDefault();go(SLIDES.length-1);}else if(key==='o'){overview();}else if(key==='n'){notes();}else if(key==='f'){fullscreen();}else if(key==='b'){event.preventDefault();$('#blackout').hidden=false;}else if(key==='l'){setLanguage(lang==='bg'?'en':'bg');}
+    if(['arrowright','arrowdown','pagedown',' '].includes(key)){event.preventDefault();go(index+1);}else if(['arrowleft','arrowup','pageup'].includes(key)){event.preventDefault();go(index-1);}else if(key==='home'){event.preventDefault();go(0);}else if(key==='end'){event.preventDefault();go(SLIDES.length-1);}else if(key==='o'){overview();}else if(key==='n'){materials();}else if(key==='f'){fullscreen();}else if(key==='b'){event.preventDefault();$('#blackout').hidden=false;}else if(key==='l'){setLanguage(lang==='bg'?'en':'bg');}
   });
   let touch=null;
   $('#slide').addEventListener('touchstart',e=>{if(e.target.closest('button,a'))return;touch={x:e.touches[0].clientX,y:e.touches[0].clientY};},{passive:true});

@@ -1,6 +1,6 @@
 # Strategy · Telerik Academy
 
-A bilingual Bulgarian / English web presentation for a 190-minute introductory UI/UX lecture. 64 slides follow the approved `program.md`: three 40-minute blocks, two breaks, a 25-minute AI session, introduction and final discussion. The session runs 18:00–21:10, with breaks at 18:45–18:55 and 19:35–19:55. Slide 2 introduces Dimitar Stoimchev with a realistic edited portrait and a three-sentence BG/EN biography covering his work from September 2016 to September 2026.
+A bilingual Bulgarian / English web presentation for a 190-minute introductory UI/UX lecture. 64 slides follow the approved `program.md`: three 40-minute blocks, two breaks, a 25-minute AI session, introduction and final discussion. The session runs 18:00–21:10, with breaks at 18:45–18:55 and 19:35–19:55. Slide 2 introduces Dimitar Stoimchev with a realistic edited portrait and a third-person BG/EN biography covering his work from September 2016 to September 2026 and his education.
 
 ## Present
 
@@ -17,7 +17,7 @@ Then open `http://localhost:4173/presentation/`. No installation or build is req
 | ← / →, Page Up / Down, Space | Previous / next slide |
 | Home / End | First / last slide |
 | O | Slide overview |
-| N | Presenter notes on the current screen |
+| N | Learning materials |
 | F | Fullscreen |
 | B | Blackout; any key restores the slide |
 | L or BG / EN | Switch language |
@@ -25,7 +25,7 @@ Then open `http://localhost:4173/presentation/`. No installation or build is req
 
 Click each pyramid level to reveal its definition and lunch-case example. The nine Duolingo slides include five historical metric examples with reveal controls, an answer-selection check with feedback and reset, a tradeoff choice, and a final strategy mapping. Choices and reveals persist during the current page session; reload or use the hide/reset controls before presenting.
 
-Break timers start manually and reset when leaving the slide. Exercise slides show only the task and a short learning description. Notes are visible on the projected screen when opened; they are not a separate private presenter window. The full Bulgarian autocue is `program.md`, also available through the notes link.
+Break timers start manually and reset when leaving the slide. Exercise slides show only the task and a short learning description. The header document icon and N shortcut open Materials, currently a bilingual placeholder with no file links or speaker notes. Learning files will be added after the lecture and incorporation of participant feedback. Lecturer documents remain in `program.md` and `autocue.md`.
 
 All three exercises run in the shared virtual classroom: lecturer setup, three minutes of individual work, volunteer presentation, and guided discussion. Learners can participate by chat or microphone; no breakout rooms or extra accounts are required. The 10 / 10 / 12-minute exercise plans and facilitation details live only in the program; use a private timer.
 
@@ -41,7 +41,7 @@ All three exercises run in the shared virtual classroom: lecturer setup, three m
 
 The palette comes from the supplied PDF: green `#47db00`, brand green `#43a747`, violet `#6060e2`, lavender `#bfbff3`, sage `#addf80`, and pale blue `#b9e9fa`. System fonts and bundled images keep the presentation usable offline. Reduced-motion preferences are respected.
 
-All lunch-case numbers, interview quotes and competitor findings are fictional teaching data, labeled as such. Duolingo screenshots are historical assets extracted unchanged from the supplied PDF; their promotional copy is not independently validated. Proposed metrics and quiz numbers are teaching examples, not Duolingo performance data. Source links for research concepts and AI tools are in the notes and script. Recheck tool capabilities before teaching as services change.
+All lunch-case numbers, interview quotes and competitor findings are fictional teaching data, labeled as such. Duolingo screenshots are historical assets extracted unchanged from the supplied PDF; their promotional copy is not independently validated. Proposed metrics and quiz numbers are teaching examples, not Duolingo performance data. Source links for research concepts and AI tools remain in the slide data and teaching script; the Materials dialog does not display them. Recheck tool capabilities before teaching as services change.
 
 ## Visual assets
 
