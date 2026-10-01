@@ -1,6 +1,6 @@
 # Strategy · Telerik Academy
 
-A bilingual Bulgarian / English web presentation for a 190-minute introductory UI/UX lecture. 54 slides follow the approved `program.md`: three 40-minute blocks, two breaks, a 25-minute AI session, introduction and final discussion. The session runs 18:00–21:10, with breaks at 18:45–18:55 and 19:35–19:55. Slide 2 introduces Dimitar Stoimchev with a realistic edited portrait and a three-sentence BG/EN biography covering his work from September 2016 to September 2026.
+A bilingual Bulgarian / English web presentation for a 190-minute introductory UI/UX lecture. 56 slides follow the approved `program.md`: three 40-minute blocks, two breaks, a 25-minute AI session, introduction and final discussion. The session runs 18:00–21:10, with breaks at 18:45–18:55 and 19:35–19:55. Slide 2 introduces Dimitar Stoimchev with a realistic edited portrait and a three-sentence BG/EN biography covering his work from September 2016 to September 2026.
 
 ## Present
 
@@ -23,15 +23,15 @@ Then open `http://localhost:4173/presentation/`. No installation or build is req
 | L or BG / EN | Switch language |
 | Swipe horizontally | Previous / next on touch screens |
 
-Exercise timers start manually and reset when leaving the slide. Notes are visible on the projected screen when opened; they are not a separate private presenter window. The full Bulgarian autocue is `program.md`, also available through the notes link.
+Break timers start manually and reset when leaving the slide. Exercise slides show only the task and a short learning description. Notes are visible on the projected screen when opened; they are not a separate private presenter window. The full Bulgarian autocue is `program.md`, also available through the notes link.
 
-All three exercises run in the shared virtual classroom: lecturer setup, three minutes of individual work, volunteer presentation, and guided discussion. Learners can participate by chat or microphone; no breakout rooms or extra accounts are required. Exercise timers cover the full 10 / 10 / 12 minutes.
+All three exercises run in the shared virtual classroom: lecturer setup, three minutes of individual work, volunteer presentation, and guided discussion. Learners can participate by chat or microphone; no breakout rooms or extra accounts are required. The 10 / 10 / 12-minute exercise plans and facilitation details live only in the program; use a private timer.
 
 ## Content and design
 
 - `program-short.md`: approved outline.
-- `program.md`: detailed Bulgarian teaching script.
-- `M1-L3-Strategy-1.pdf`: supplied reference presentation.
+- `program.md`: detailed Bulgarian teaching script with numbered slide cues, direct links and a complete slide index.
+- `M1-L3-Strategy-1.pdf`: archival reference only; not needed during the lecture. The new deck includes a strategy/execution diagram, schematic Duolingo examples and a one-page strategy template.
 - `presentation/slides.js`: bilingual slide content and concise speaker notes.
 - `presentation/prompt.js`: bilingual AI demonstration prompt and synthetic teaching data.
 - `presentation/app.js`, `styles.css`: accessible controls, responsive layouts, motion and charts.
