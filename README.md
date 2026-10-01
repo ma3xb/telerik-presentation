@@ -33,6 +33,7 @@ All three exercises run in the shared virtual classroom: lecturer setup, three m
 
 - `program-short.md`: approved outline.
 - `program.md`: detailed Bulgarian teaching script with short numbered slide cues and a complete slide index.
+- `autocue.md`: ready-to-read Bulgarian spoken script, with slide numbers before each speaking segment and clearly separated questions, actions, exercises and breaks.
 - `M1-L3-Strategy-1.pdf`: archival reference only; not needed during the lecture. The new deck includes an interactive five-level strategy pyramid, a nine-slide historical Duolingo case and a one-page strategy template.
 - `presentation/slides.js`: bilingual slide content and concise speaker notes.
 - `presentation/prompt.js`: bilingual AI demonstration prompt and synthetic teaching data.
