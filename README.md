@@ -25,6 +25,8 @@ Then open `http://localhost:4173/presentation/`. No installation or build is req
 
 Exercise timers start manually and reset when leaving the slide. Notes are visible on the projected screen when opened; they are not a separate private presenter window. The full Bulgarian autocue is `program.md`, also available through the notes link.
 
+All three exercises run in the shared virtual classroom: lecturer setup, three minutes of individual work, volunteer presentation, and guided discussion. Learners can participate by chat or microphone; no breakout rooms or extra accounts are required. Exercise timers cover the full 10 / 10 / 12 minutes.
+
 ## Content and design
 
 - `program-short.md`: approved outline.
